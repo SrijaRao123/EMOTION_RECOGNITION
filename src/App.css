@@ -1,0 +1,265 @@
+/* Root styling */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 1s ease-in-out;
+  overflow: hidden;
+}
+
+/* Fade-in animation for page load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Main app container */
+.App {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 600px;
+  animation: float 3s ease-in-out infinite;
+  z-index: 3; /* Ensure it stays behind other elements */
+  overflow: hidden;
+}
+
+/* Float animation for the App container */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pause floating animation when hovering over the .App container */
+.App:hover {
+  animation: none;
+}
+
+/* Title styling */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Webcam styling */
+.Webcam {
+  border: 3px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  animation: fadeIn 1.5s ease;
+  z-index: 1; /* Ensure it stays in front of emojis */
+  /* width: 100%; Adjust to fit smaller screens */
+  /* max-width: 300px; Max width for larger screens */
+}
+
+/* Capture button styling */
+button {
+  background-color: #ff5e62;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+button:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+  animation: pulse 1.5s infinite;
+  color: #ff5e62;
+  z-index: 2;
+}
+
+/* Emotion result styling with stronger solid colors */
+.angry {
+  color: #ff3b30 !important; /* Stronger red for angry */
+}
+
+.disgust {
+  color: #2749c4 !important; /* Stronger green for disgust */
+}
+
+.fear {
+  color: #ae0dff !important; /* Stronger purple for fear */
+}
+
+.happy {
+  color: #ff00dd !important; /* Stronger yellow for happy */
+}
+
+.neutral {
+  color: #395cf8 !important; /* Softer gray for neutral */
+}
+
+.sad {
+  color: #0056b3 !important; /* Stronger blue for sad */
+}
+
+.surprise {
+  color: #ff9f00; /* Stronger orange for surprise */
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  animation: highlight 2s infinite;
+}
+
+/* Emoji size increase */
+.emoji {
+  font-size: 3rem; /* Increase size to double */
+}
+
+/* Highlight animation for detected emotion text */
+@keyframes highlight {
+  0%, 100% {
+    color: #fff;
+  }
+  50% {
+    color: #ffde7d;
+  }
+}
+
+h2 span {
+  font-weight: bold;
+}
+
+/* Floating emojis styling */
+.floating-emoji {
+  position: absolute;
+  bottom: 0;
+  font-size: 4rem;
+  opacity: 1;
+  animation: floatUp 0s linear forwards;
+  z-index: 1; /* Keep behind the main app components */
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 5;
+  }
+  50% {
+    opacity: 5;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 5;
+  }
+}
+
+/* Background container styling */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Ensure it stays behind other elements */
+  overflow: hidden;
+}
+
+/* Logo styling */
+.logo {
+  width: 10%;
+  margin-left: -350px;
+  top: 50px;
+  position: absolute;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .App {
+    width: 95%;
+    padding: 15px;
+    max-width: 400px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .Webcam {
+    max-width: 250px;
+    border-width: 2px;
+  }
+
+  .floating-emoji {
+    font-size: 3rem;
+  }
+
+  .logo {
+    width: 15%; /* Make the logo larger on smaller screens */
+    top: 5px;    /* Adjust positioning for mobile */
+    left: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+    max-width: 320px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+
+  .Webcam {
+    max-width: 200px;
+  }
+
+  .floating-emoji {
+    font-size: 2.5rem;
+  }
+
+  .logo {
+    width: 20%; /* Increase the size further on very small screens */
+    top: 2px;
+    left: 2px;
+  }
+}
